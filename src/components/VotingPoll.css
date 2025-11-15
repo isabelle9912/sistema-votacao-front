@@ -1,0 +1,140 @@
+:root {
+  --color-golang: #00add8;
+  --color-react: #61dafb;
+  --color-redis: #dc382d;
+  --color-cassandra: #1287b1;
+}
+
+.voting-poll-container {
+  background-color: #282c34;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.poll-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.poll-card {
+  border-radius: 8px;
+  border: 2px solid #444;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background-color: #333740; /* Um pouco mais claro que o fundo */
+  padding: 1.5rem 1rem;
+
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+}
+
+.poll-card:hover:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: var(--option-color);
+}
+
+.poll-card:focus-visible {
+  outline-color: var(--option-color);
+}
+
+.poll-card.loading {
+  /* Animação de pulso para o card selecionado */
+  animation: pulse 1s infinite;
+  border-color: var(--option-color);
+  box-shadow: 0 0 15px var(--option-color);
+}
+
+.poll-card:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  background-color: #282c34;
+}
+
+.poll-card-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain; /* Para a imagem não distorcer */
+  margin-bottom: 1rem;
+}
+
+.poll-card-name {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.poll-results {
+  text-align: left;
+}
+
+.poll-results h3 {
+  color: var(--color-react);
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.result-bar-container {
+  margin-bottom: 1rem;
+
+  border-left: 4px solid var(--option-color);
+  padding-left: 10px;
+}
+
+.result-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.result-lable-text {
+  color: #fff;
+}
+
+.result-bar-background {
+  width: 100%;
+  height: 20px;
+  background-color: #444;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.result-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease-out;
+  background-color: var(--option-color);
+}
+
+.total-votes {
+  margin-top: 2rem;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--color-react);
+}
