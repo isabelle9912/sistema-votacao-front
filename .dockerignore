@@ -1,0 +1,12 @@
+# Ignora a pasta de módulos, já que o Docker vai instalar
+
+node_modules
+
+# Ignora a pasta de build local (se houver)
+
+dist
+
+# Ignora arquivos de ambiente local
+
+.env.local
+.env
