@@ -4,7 +4,8 @@
  * - Caso contrário, monta automaticamente com o domínio do front-end
  */
 export function getApiBaseUrl() {
-  const envApiUrl = import.meta.env.VITE_API_URL;
+  const envApiUrl = "http://localhost:8080";
+
   if (envApiUrl) return envApiUrl;
   return `${window.location.origin}`;
 }
