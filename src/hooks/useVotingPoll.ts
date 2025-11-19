@@ -52,8 +52,6 @@ export const useVotingPoll = () => {
   // --- 2. WebSocket ---
   useEffect(() => {
     const wsUrl = `${getWsBaseUrl()}/votos`;
-    // OBS: Se tiver um endpoint diferente para atualizações de CANDIDATOS (ex: novo candidato entrou),
-    // precisaria conectar nele também. Por enquanto, vamos assumir que o WS só atualiza votos.
 
     const ws = new WebSocket(wsUrl);
 
