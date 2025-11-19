@@ -18,11 +18,6 @@ export const postCandidates = async (optionName: string) => {
   });
 };
 
-export const getVotes = async () => {
-  const response = await fetch(`${API_URL}/votos`);
-  return await response.json();
-};
-
 export const postVote = async (optionId: string) => {
   await fetch(`${API_URL}/votos`, {
     method: "POST",
