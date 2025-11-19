@@ -1,12 +1,12 @@
 /**
- * Retorna a base URL da API (ex: http://localhost:8080/api/v1)
+ * Retorna a base URL da API (ex: http://localhost:8080)
  * - Usa VITE_API_URL se estiver definida
  * - Caso contrário, monta automaticamente com o domínio do front-end
  */
 export function getApiBaseUrl() {
   const envApiUrl = import.meta.env.VITE_API_URL;
   if (envApiUrl) return envApiUrl;
-  return `${window.location.origin}/api/v1`;
+  return `${window.location.origin}`;
 }
 
 /**
