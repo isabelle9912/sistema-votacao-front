@@ -1,14 +1,12 @@
 // src/helpers/mascotHelper.ts
 
-// Imports das imagens (ajuste o caminho conforme sua pasta)
-// Se estiverem na pasta public, basta usar strings diretas
 const IMAGES = {
   go: "/mascots/gopher.png",
   react: "/mascots/react-ninja.png",
   redis: "/mascots/redis.png",
   cassandra: "/mascots/cassandra-eye.png",
   docker: "/mascots/docker-whale.png",
-  default: "/mascots/gopher.png", // Um fallback
+  default: "/mascots/placeholder.png", // Um fallback
 };
 
 const COLORS = {
@@ -34,6 +32,6 @@ export function getMascotDetails(name: string) {
   if (normalized.includes("docker"))
     return { img: IMAGES.docker, color: COLORS.docker };
 
-  // Se não conhecer, retorna o padrão (ou você pode criar uma lógica de cores aleatórias)
+  // Se não conhecer, retorna o padrão
   return { img: IMAGES.default, color: COLORS.default };
 }
