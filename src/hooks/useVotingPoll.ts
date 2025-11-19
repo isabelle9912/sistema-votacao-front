@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  getVotes,
-  postVote,
-  getCandidates,
-  postCandidates,
-} from "../services/api";
+import { postVote, getCandidates, postCandidates } from "../services/api";
 import { getWsBaseUrl } from "../helpers/baseUrl";
 
 // Interface para o Candidato que vem da API
@@ -24,18 +19,14 @@ export const useVotingPoll = () => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Função para carregar dados (Candidatos + Votos)
+  // Função para carregar dados dos Candidatos
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      // Buscamos as duas coisas em paralelo
-      const [candidatesData, votesData] = await Promise.all([
-        getCandidates(),
-        getVotes(),
-      ]);
+
+      const candidatesData = await getCandidates();
 
       setCandidates(candidatesData);
-      setVotes(votesData);
     } catch (err) {
       console.error("Erro ao carregar dados:", err);
       setError("Falha ao carregar a votação.");
