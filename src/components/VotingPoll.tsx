@@ -90,7 +90,8 @@ export const VotingPoll: React.FC = () => {
         <h3>Resultados ({totalVotes} votos):</h3>
         {candidates.map((candidate) => {
           const { color } = getMascotDetails(candidate.nome);
-          const count = votes[String(candidate.id)] || 0; // Garante chave string
+          const voteKey = candidate.nome.toLowerCase();
+          const count = votes[voteKey] || 0;
           const percentage = totalVotes > 0 ? (count / totalVotes) * 100 : 0;
 
           return (
